@@ -1,0 +1,28 @@
+footer {
+  .line {
+    height: 3px;
+    width: 100%;
+    background-color: $color-gold;
+  }
+  .logo {
+    background-color: #fff;
+    margin-left: 50%;
+    width: 70px;
+    padding: 5px;
+    transform: translate(-50%, -65%);
+  }
+  .footinfo {
+    background-color: rgba($color-burgundy, 0.7);
+    border: solid 1px $color-burgundy;
+    color: $color-gold;
+    box-shadow: 2px 7px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 0.5rem;
+    height: 100%;
+
+    h3 {
+      text-transform: uppercase;
+      color: $color-gold;
+    }
+  }
+}
