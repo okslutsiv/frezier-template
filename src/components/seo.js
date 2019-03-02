@@ -63,7 +63,7 @@ function SEO({ description, lang, meta, keywords, title }) {
           >
             <style>
               @import
-              url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab');
+              url('https://fonts.googleapis.com/css?family=Raleway:300,400|Roboto+Slab:300,400,700');
             </style>
             >
           </Helmet>

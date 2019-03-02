@@ -14,7 +14,7 @@ const styles = theme => {
       paddingTop: "5vh",
       textShadow: "0 0 5px rgba(0,0,0,0.5)",
       backgroundImage: `linear-gradient(-135deg, rgba(255,0,0,0.2) 20%, rgba(0,0,0,0.8))`,
-      paddingTop: `20vh`,
+      // paddingTop: `20vh`,
     },
     ask: {
       color: gold[100],

@@ -46,9 +46,14 @@ export const styles = theme => {
       width: "40px",
       height: "40px",
     },
+
     blond: {
       maxWidth: "400px",
       margin: "0 auto",
+      borderRadius: "50%",
+      overflow: "hidden",
+      // border: `1px solid ${olive[700]}`,
+      boxShadow: ` 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)`,
     },
   };
 };
@@ -62,7 +67,7 @@ function Features(props) {
           <div className={classes.text}>
             {/* <Paper className={classes.text}> */}
             <Typography variant="h2" className={classes.title}>
-              НАШІ МАЙСТРИ пропонують 
+              НАШІ МАЙСТРИ пропонують
             </Typography>
             <List>
               <ListItem>

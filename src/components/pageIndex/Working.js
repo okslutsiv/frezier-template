@@ -11,7 +11,7 @@ const styles = theme => {
       textAlign: "center",
     },
     title: {
-      color: gold[900],
+      color: gold[700],
       margin: "1rem auto",
     },
     adress: {
@@ -20,10 +20,14 @@ const styles = theme => {
       margin: "1rem auto",
     },
     paper: {
-      backgroundImage: `linear-gradient(45deg, ${gold[300]},${olive[300]})`,
+      backgroundColor: "rgba(255,252,245,1)",
+      backgroundImage: `linear-gradient(45deg, ${gold[200]} 20% ,${
+        olive[200]
+      } 80%)`,
       padding: "1.0rem",
       margin: "0.5rem auto",
       textAlign: "center",
+      boxShadow: "none",
       "& p": {
         color: burgundy[900],
       },
@@ -37,11 +41,11 @@ function Working(props) {
     <section className={classes.root}>
       <Grid container justify="space-around" alignItems="flex-end">
         <Hidden smDown>
-          <Grid item md={4}>
+          <Grid item sm={4}>
             <Clock />
           </Grid>
         </Hidden>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} sm={8} md={6}>
           <Typography variant="h2" className={classes.title}>
             Чекаємо на Вас
           </Typography>

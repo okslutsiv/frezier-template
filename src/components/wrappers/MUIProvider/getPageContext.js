@@ -5,12 +5,22 @@ import {
   createMuiTheme,
   createGenerateClassName,
 } from "@material-ui/core/styles";
+
 import { gold, burgundy, error, olive } from "./ThemeColorsTriad";
 
-// A theme with custom primary and secondary color.
-// It's optional.
 const theme = createMuiTheme({
+  overrides: {
+    main: {
+      minHeight: `80vh`,
+    },
+  },
+  main: {
+    minHeight: `80vh`,
+  },
   palette: {
+    background: {
+      default: "rgba(255,250,240,1)",
+    },
     gold: {
       rgb: gold["rgb"],
       "100": gold[100],
@@ -69,8 +79,10 @@ const theme = createMuiTheme({
     // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.1,
   },
+
   typography: {
     useNextVariants: true,
+
     fontFamily: `"Roboto Slab", "serif"`,
     h1: {
       color: "rgba(0, 0, 0, 0.87)",
@@ -112,7 +124,7 @@ const theme = createMuiTheme({
     body1: {
       color: "rgba(0, 0, 0, 0.87)",
       fontFamily: '"Roboto Slab", "serif";',
-      fontWeight: 500,
+      fontWeight: 300,
       fontSize: "1.2rem",
       lineHeight: 1.5,
       letterSpacing: "0.00938em",

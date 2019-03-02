@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+// import withRoot from "../components/wrappers/MUIProvider/withRoot";
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -30,8 +31,8 @@ const Layout = ({ children }) => (
         />
         <div
           style={{
-            // margin: `-56px 0 0`,
             width: `100%`,
+            minHeight: `57vh`,
           }}
         >
           <main>{children}</main>
@@ -47,3 +48,4 @@ Layout.propTypes = {
 };
 
 export default Layout;
+// export default withRoot(Layout);

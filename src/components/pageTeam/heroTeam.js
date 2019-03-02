@@ -10,18 +10,20 @@ const styles = theme => {
     root: {
       width: "100%",
       paddingBottom: "2.5rem",
-      background: `rgba(255,255,255,0.85)`,
+      backgroundImage: `radial-gradient(circle, rgba(255,250,240,0.85) 40%,rgba(255,250,240,0.55))`,
       paddingTop: `5vh`,
       minHeight: `50vh`,
       "& h2": {
         color: gold[700],
         textAlign: "center",
         margin: "0 2rem",
+        textShadow: "0 0 15px rgba(255,250,240,1)",
       },
       "& p": {
         color: burgundy[900],
         padding: "1rem 2rem",
         textAlign: "center",
+        textShadow: "0 0 15px rgba(255,250,240,1)",
       },
     },
     cta: {

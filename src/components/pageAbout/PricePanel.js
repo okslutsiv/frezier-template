@@ -24,6 +24,7 @@ const styles = theme => {
       maxWidth: 960,
       margin: "3rem auto",
       overflow: "visible",
+      border: `1px solid ${olive[300]}`,
     },
     media: {
       height: "100%",
@@ -31,7 +32,7 @@ const styles = theme => {
       margin: 12,
       backgroundSize: "cover",
       borderRadius: "0.25rem",
-      opacity: 0.85,
+      // opacity: 0.85,
     },
     actions: {
       marginTop: "-1.5rem",
