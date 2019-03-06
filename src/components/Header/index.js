@@ -5,6 +5,7 @@ import SideNav from "./SideNav";
 import { ButtonBase, withStyles, Typography } from "@material-ui/core";
 import LogoSvg from "../../images/icons/svg/LogoSvg";
 import Headroom from "./Headroom";
+// import { StaticQuery, graphql } from "gatsby";
 
 export const styles = theme => {
   const { burgundy, olive } = theme.palette;
