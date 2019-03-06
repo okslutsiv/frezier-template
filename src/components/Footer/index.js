@@ -4,7 +4,7 @@ import LogoSvg from "../../images/icons/svg/LogoSvg";
 import { withStyles, Typography, Grid } from "@material-ui/core";
 
 const styles = theme => {
-  const { burgundy, gold, olive } = theme.palette;
+  const { burgundy, olive } = theme.palette;
   return {
     root: {
       paddingTop: "3rem",
@@ -39,12 +39,7 @@ function Footer(props) {
       <Grid container alignItems="center">
         <Grid item className={classes.line} xs={5} />
         <Grid item className={classes.logo} xs={2}>
-          <LogoSvg
-          // width="80px"
-          // height="55px"
-          // fill="#e1b67f"
-          // fontSize="0.7rem"
-          />
+          <LogoSvg />
         </Grid>
 
         <Grid item className={classes.line} xs={5} />
@@ -52,9 +47,7 @@ function Footer(props) {
 
       <FooterBackground>
         <Typography className={classes.footinfo}>
-          {/* <p className="footinfo my-3 text-center"> */}
           &copy;2019 design & development OksLutsiv
-          {/* </p> */}
         </Typography>
       </FooterBackground>
     </footer>

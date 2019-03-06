@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import zIndex from "@material-ui/core/styles/zIndex";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized

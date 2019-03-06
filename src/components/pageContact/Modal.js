@@ -12,7 +12,7 @@ const styles = theme => {
   const { gold } = theme.palette;
   return {
     root: {
-      color: gold[700],
+      color: gold[900],
     },
   };
 };
@@ -29,7 +29,10 @@ function AlertDialog(props) {
         aria-describedby="alert-dialog-description"
       >
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText
+            id="alert-dialog-description"
+            className={classes.root}
+          >
             Ваш запит прийнято. Очікуйте дзвінка адміністратора.
           </DialogContentText>
         </DialogContent>

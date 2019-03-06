@@ -3,12 +3,10 @@ import Icon1 from "../../images/icons/svg/Feature1Svg";
 import Icon2 from "../../images/icons/svg/Feature2Svg";
 import Icon3 from "../../images/icons/svg/Feature3Svg";
 import Blond from "../../images/blond";
-import Pearls from "../../images/pearls";
 import {
   withStyles,
   Typography,
   Grid,
-  Paper,
   List,
   ListItem,
   ListItemIcon,
@@ -16,7 +14,7 @@ import {
 } from "@material-ui/core";
 
 export const styles = theme => {
-  const { burgundy, gold, olive, error } = theme.palette;
+  const { burgundy, gold, olive } = theme.palette;
   return {
     root: {
       padding: "5%",

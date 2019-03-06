@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles, Grid, Typography } from "@material-ui/core";
 
 export const styles = theme => {
-  const { burgundy, gold, olive } = theme.palette;
+  const { burgundy, olive } = theme.palette;
   return {
     root: {
       padding: "5%",
@@ -31,10 +31,6 @@ function Advantages(props) {
   const { classes } = props;
   return (
     <section className={classes.root}>
-      {/* <Typography variant="h2" className={classes.title}>
-        Наші переваги
-      </Typography> */}
-
       <Grid container alignItems="center" justify="center" spacing={40}>
         <Grid item xs={12} sm={6} md={4}>
           <Typography variant="h3" className={classes.block}>

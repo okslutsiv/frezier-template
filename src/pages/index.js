@@ -14,7 +14,7 @@ import MapPigeon from "../components/Map";
 import SEO from "../components/seo";
 
 const styles = theme => {
-  const { gold, burgundy, error } = theme.palette;
+  const { gold } = theme.palette;
   console.log(theme.palette);
 
   return {

@@ -1,7 +1,6 @@
 import React from "react";
 import Clock from "../../images/clock";
 import { Paper, Grid, withStyles, Typography, Hidden } from "@material-ui/core";
-import GoldGrungBackground from "../../images/backgrounds/goldGrung";
 
 const styles = theme => {
   const { burgundy, gold, olive } = theme.palette;

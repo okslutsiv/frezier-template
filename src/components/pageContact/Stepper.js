@@ -162,7 +162,6 @@ class StepperAppoint extends React.Component {
     });
   };
   handleChange = input => e => {
-    // e.preventDefault();
     this.setState({
       [input]: e.target.value,
     });
@@ -192,7 +191,7 @@ class StepperAppoint extends React.Component {
     });
   };
 
-  validateName = name => {
+  validateName = () => {
     const regex = /[А-Я,а-я,A-Z,a-z]+/g;
 
     const validName = regex.test(this.state.name);
@@ -201,6 +200,7 @@ class StepperAppoint extends React.Component {
   };
   validatePhone = phone => {
     const regex = /^[\+]?[0-9]{2}[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/;
+
     const validPhone = regex.test(this.state.phone);
     this.setState({ validPhone: validPhone });
   };
@@ -273,7 +273,8 @@ class StepperAppoint extends React.Component {
                     </Typography>
                     <Typography>
                       {" "}
-                      Все вірно? Тоді тисніть кнопку <span>"Надіслати"</span>.
+                      Все вірно?
+                      <br /> Тоді тисніть кнопку <span>"Надіслати"</span>.
                     </Typography>
                   </div>
                 </Paper>

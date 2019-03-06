@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "gatsby";
 
 import CtaButton from "../CTAButton";
 import { withStyles, Typography } from "@material-ui/core";
 import HeroBackground from "../../images/backgrounds/herorose";
 
 const styles = theme => {
-  const { gold, burgundy, error } = theme.palette;
+  const { gold } = theme.palette;
   return {
     root: {
       display: "block",
@@ -16,7 +15,6 @@ const styles = theme => {
       paddingTop: "5vh",
       textShadow: "0 0 5px rgba(0,0,0,0.5)",
       backgroundImage: `linear-gradient(-135deg, rgba(255,0,0,0.2) 20%, rgba(0,0,0,0.8))`,
-      // paddingTop: `20vh`,
     },
     ask: {
       color: gold[100],

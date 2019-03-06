@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 const styles = theme => {
-  const { gold, olive, burgundy } = theme.palette;
+  const { gold, burgundy } = theme.palette;
   return {
     root: {
       width: "100%",

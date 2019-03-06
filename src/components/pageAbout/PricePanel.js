@@ -37,7 +37,6 @@ const styles = theme => {
     actions: {
       marginTop: "-1.5rem",
       marginBottom: "-2rem",
-      textAlign: "right",
       width: "100%",
       textAlign: "center",
     },

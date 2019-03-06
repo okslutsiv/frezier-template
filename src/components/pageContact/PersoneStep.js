@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 
 export const styles = theme => {
-  const { gold, olive, burgundy } = theme.palette;
+  const { burgundy } = theme.palette;
   return {
     container: {
       width: "100%",

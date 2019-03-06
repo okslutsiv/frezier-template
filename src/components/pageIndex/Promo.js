@@ -1,8 +1,6 @@
 import React from "react";
 import Redhair from "../../images/redhair";
 import CtaButton from "../CTAButton";
-import Pearls from "../../images/pearls";
-import { Link } from "gatsby";
 import GoldGrungBackground from "../../images/backgrounds/goldGrung";
 
 import { withStyles, Typography, Grid, Card, Hidden } from "@material-ui/core";

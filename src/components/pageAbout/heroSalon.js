@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 
 import SalonBackground from "../../images/backgrounds/salon";
 import { withStyles } from "@material-ui/core/styles";
@@ -7,7 +6,7 @@ import { Typography } from "@material-ui/core";
 import CtaButton from "../CTAButton";
 
 const styles = theme => {
-  const { gold, olive, burgundy } = theme.palette;
+  const { gold, burgundy } = theme.palette;
   return {
     root: {
       width: "100%",

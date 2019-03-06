@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import { withStyles, Grid } from "@material-ui/core";
 import withRoot from "../components/wrappers/MUIProvider/withRoot";
 import HeroTeam from "../components/pageTeam/heroTeam";
@@ -14,7 +13,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 export const styles = theme => {
-  const { gold, burgundy, olive } = theme.palette;
   return {
     root: {
       padding: "5vh 0 5vh ",

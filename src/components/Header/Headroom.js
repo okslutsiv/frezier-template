@@ -3,17 +3,11 @@ import HeadroomWrapper from "react-headroom";
 import LogoSvg from "../../images/icons/svg/LogoSvg";
 import MenuSvg from "../../images/icons/svg/MenuSvg";
 import InfoPanelContent from "./InfoPanelContent";
-import { Link, navigate } from "gatsby";
-import {
-  withStyles,
-  ButtonBase,
-  Grid,
-  withWidth,
-  Hidden,
-} from "@material-ui/core";
+import { navigate } from "gatsby";
+import { withStyles, ButtonBase, Grid, Hidden } from "@material-ui/core";
 
 export const styles = theme => {
-  const { burgundy, gold, olive } = theme.palette;
+  const { burgundy, olive } = theme.palette;
   return {
     headroom: {
       boxShadow: "0px 1px 5px 0px rgba(0,0,0,0.2)",
@@ -88,11 +82,9 @@ function Headroom(props) {
             </Grid>
           </Hidden>
           <Grid item xs={6} md={2} className={classes.logo}>
-            {/* <Link to="/"> */}
             <ButtonBase onClick={() => navigate("/")}>
               <LogoSvg className={classes.svg} width="60px" height="45px" />
             </ButtonBase>
-            {/* </Link> */}
           </Grid>
         </Grid>{" "}
       </div>

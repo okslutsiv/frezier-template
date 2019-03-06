@@ -9,7 +9,6 @@ export default function Feature2Svg(props) {
       height={props.height}
       fill={props.fill}
       stroke={props.stroke}
-      viewBox="0 0 69.47 81"
       className={props.className}
       viewBox="0 0 31.87 74.43"
     >

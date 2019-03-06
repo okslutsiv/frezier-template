@@ -7,7 +7,7 @@ import LogoSvg from "../../images/icons/svg/LogoSvg";
 import Headroom from "./Headroom";
 
 export const styles = theme => {
-  const { burgundy, gold, olive, error } = theme.palette;
+  const { burgundy, olive } = theme.palette;
   return {
     sideNav: {
       textAlign: "center",

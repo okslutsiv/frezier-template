@@ -1,10 +1,8 @@
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-//====
 import PropTypes from "prop-types";
 import PricePanel from "../components/pageAbout/PricePanel";
-import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../components/wrappers/MUIProvider/withRoot";
 import styling from "../images/pricelist/styling.jpg";
@@ -14,10 +12,9 @@ import manicure from "../images/pricelist/manicure.jpg";
 import smokyEye from "../images/pricelist/smoky-eye.jpg";
 
 import HeroSalon from "../components/pageAbout/heroSalon";
-//===
 
 const styles = theme => {
-  const { gold, burgundy, error } = theme.palette;
+  const { burgundy } = theme.palette;
   console.log(theme.palette);
 
   return {

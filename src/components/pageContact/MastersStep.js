@@ -16,7 +16,7 @@ import {
 } from "@material-ui/core";
 
 export const styles = theme => {
-  const { gold, olive, burgundy } = theme.palette;
+  const { gold, olive } = theme.palette;
   return {
     avatar: {
       width: "60%",
@@ -83,9 +83,6 @@ function MastersStep(props) {
       ))}
       <Grid item xs={12}>
         {" "}
-        {/* <Typography className={classes.label}>
-          Які послуги Вам потрібні?
-        </Typography> */}
         <Paper style={{ padding: 12 }} elevation={0}>
           <TextField
             value={services}
@@ -98,9 +95,9 @@ function MastersStep(props) {
             rows={2}
             margin="normal"
             variant="filled"
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
         </Paper>
       </Grid>

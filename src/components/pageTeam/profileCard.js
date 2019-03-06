@@ -3,19 +3,15 @@ import PropTypes from "prop-types";
 import DoneIcon from "@material-ui/icons/Done";
 import {
   withStyles,
-  Grid,
-  Paper,
   Typography,
   Chip,
   Card,
-  CardHeader,
   CardMedia,
   CardContent,
-  CardActions,
 } from "@material-ui/core";
 
 export const styles = theme => {
-  const { gold, burgundy, olive } = theme.palette;
+  const { gold, burgundy } = theme.palette;
   return {
     root: {
       margin: 5,
@@ -24,9 +20,6 @@ export const styles = theme => {
       margin: "3rem auto",
       overflow: "visible",
       opacity: 1,
-      // backgroundImage: `linear-gradient(45deg,${olive[500]} 0%, ${
-      //   gold[700]
-      // } 100%)`,
     },
     media: {
       height: "100%",

@@ -11,27 +11,21 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  TextField,
-  Card,
 } from "@material-ui/core";
 
 import ukLocale from "date-fns/locale/uk";
 
 export const styles = theme => {
-  const { gold, olive, burgundy } = theme.palette;
+  const { gold } = theme.palette;
   return {
     root: {
       width: "80%",
       height: "auto",
       margin: "5% 10%",
       alignItems: "stretch",
-      // boxShadow:
-      //   "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
-      // border: `2px solid ${olive[500]}`,
     },
     card: {
       textAlign: "center",
-      // width: "80%",
       margin: "2rem 0",
       padding: "1rem 1rem 4rem 1rem",
     },
@@ -62,7 +56,6 @@ function DateStep(props) {
     handleDaypartChange,
     date,
     daypart,
-    handleChange,
   } = props;
 
   return (
