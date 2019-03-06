@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
+
 import CtaButton from "../CTAButton";
 import { withStyles, Typography } from "@material-ui/core";
 import HeroBackground from "../../images/backgrounds/herorose";

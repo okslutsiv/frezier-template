@@ -10,17 +10,52 @@ import { gold, burgundy, error, olive } from "./ThemeColorsTriad";
 
 const theme = createMuiTheme({
   overrides: {
-    main: {
-      minHeight: `80vh`,
+    MuiButton: {
+      root: {
+        borderRadius: 20,
+        minWidth: 110,
+      },
+      containedPrimary: {
+        "&:hover": {
+          backgroundColor: burgundy[900],
+        },
+      },
     },
-  },
-  main: {
-    minHeight: `80vh`,
+    MuiStepLabel: {
+      label: {
+        fontSize: 14,
+        color: gold[500],
+      },
+    },
+    MuiStepIcon: {
+      root: {
+        color: gold[300],
+      },
+    },
+    MuiRadio: {
+      root: {
+        color: gold[900],
+      },
+    },
+    MuiFilledInput: {
+      root: {
+        backgroundColor: gold[200],
+        color: burgundy[900],
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        color: gold[500],
+        fontSize: 14,
+      },
+    },
   },
   palette: {
     background: {
       default: "rgba(255,250,240,1)",
     },
+    primary: { main: burgundy[700] },
+    secondary: { main: olive[700] },
     gold: {
       rgb: gold["rgb"],
       "100": gold[100],
@@ -77,12 +112,11 @@ const theme = createMuiTheme({
     // Used to shift a color's luminance by approximately
     // two indexes within its tonal palette.
     // E.g., shift from Red 500 to Red 300 or Red 700.
-    tonalOffset: 0.1,
+    tonalOffset: 0.2,
   },
 
   typography: {
     useNextVariants: true,
-
     fontFamily: `"Roboto Slab", "serif"`,
     h1: {
       color: "rgba(0, 0, 0, 0.87)",
@@ -114,8 +148,8 @@ const theme = createMuiTheme({
       wordSpacing: "0.3rem",
     },
     h5: {
-      fontWeight: 400,
-      fontSize: "1.75rem",
+      fontWeight: 300,
+      fontSize: "1.5rem",
       lineHeight: 1.5,
       letterSpacing: "-0.00833em",
       fontFamily: "'Raleway', 'sans-serif'",
@@ -125,7 +159,7 @@ const theme = createMuiTheme({
       color: "rgba(0, 0, 0, 0.87)",
       fontFamily: '"Roboto Slab", "serif";',
       fontWeight: 300,
-      fontSize: "1.2rem",
+      fontSize: "1rem",
       lineHeight: 1.5,
       letterSpacing: "0.00938em",
     },

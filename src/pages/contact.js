@@ -8,7 +8,7 @@ import withRoot from "../components/wrappers/MUIProvider/withRoot";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import AppointStepper from "../components/pageContact/AppointStepper";
+import StepperAppoint from "../components/pageContact/Stepper";
 import HeroContact from "../components/pageContact/heroContact";
 const styles = theme => {
   const { gold, burgundy, error } = theme.palette;
@@ -51,7 +51,7 @@ const ContactPage = props => {
       <HeroContact />
       <div className={classes.root}>
         <div className={classes.container}>
-          <AppointStepper />
+          <StepperAppoint />
         </div>
       </div>
     </Layout>

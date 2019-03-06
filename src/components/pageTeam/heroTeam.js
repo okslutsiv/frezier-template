@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
+
 import SalonBackground from "../../images/backgrounds/salon";
 import { withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";

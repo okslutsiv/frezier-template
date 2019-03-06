@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { navigate } from "gatsby";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import SideNav from "./SideNav";
@@ -50,6 +50,7 @@ export const styles = theme => {
     },
     link: {
       width: "100%",
+      textDecoration: "none",
 
       borderBottom: "1px solid #777",
       "& a": { textDecoration: "none" },
@@ -92,12 +93,14 @@ class Header extends Component {
             </Typography>
             <div className={classes.nav}>
               {this.state.menuItems.map((item, key) => (
-                <ButtonBase key={key} className={classes.link}>
-                  <Link to={item.link}>
-                    <Typography variant="h2" className={classes.navItem}>
-                      {item.name}
-                    </Typography>
-                  </Link>
+                <ButtonBase
+                  className={classes.link}
+                  key={key}
+                  onClick={() => navigate(item.link)}
+                >
+                  <Typography variant="h2" className={classes.navItem}>
+                    {item.name}
+                  </Typography>
                 </ButtonBase>
               ))}
               <div className={classes.root}>

@@ -94,7 +94,7 @@ class PricePanel extends React.Component {
         <Grid item xs={12} sm={8}>
           <CardHeader title={title} className={classes.title} />
           <CardContent>
-            <Typography>{description}</Typography>
+            <Typography variant="body1">{description}</Typography>
           </CardContent>
         </Grid>
       </>
@@ -114,7 +114,7 @@ class PricePanel extends React.Component {
               <Grid item xs={12} sm={8}>
                 <CardHeader title={title} className={classes.title} />
                 <CardContent>
-                  <Typography>{description}</Typography>
+                  <Typography variant="body1">{description}</Typography>
                 </CardContent>
               </Grid>
               <Grid item xs={12} sm={4}>

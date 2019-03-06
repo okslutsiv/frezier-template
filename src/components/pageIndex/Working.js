@@ -1,7 +1,7 @@
 import React from "react";
 import Clock from "../../images/clock";
 import { Paper, Grid, withStyles, Typography, Hidden } from "@material-ui/core";
-import ClockBackground from "../../images/backgrounds/clock";
+import GoldGrungBackground from "../../images/backgrounds/goldGrung";
 
 const styles = theme => {
   const { burgundy, gold, olive } = theme.palette;
@@ -9,6 +9,7 @@ const styles = theme => {
     root: {
       padding: "5%",
       textAlign: "center",
+      borderBottom: `1px solid ${olive[300]}`,
     },
     title: {
       color: gold[700],
@@ -27,7 +28,7 @@ const styles = theme => {
       padding: "1.0rem",
       margin: "0.5rem auto",
       textAlign: "center",
-      boxShadow: "none",
+      // boxShadow: "none",
       "& p": {
         color: burgundy[900],
       },
@@ -38,6 +39,7 @@ const styles = theme => {
 function Working(props) {
   const { classes } = props;
   return (
+    // <GoldGrungBackground>
     <section className={classes.root}>
       <Grid container justify="space-around" alignItems="flex-end">
         <Hidden smDown>
@@ -52,7 +54,7 @@ function Working(props) {
           <Typography variant="h3" className={classes.adress}>
             м.Львів, вулиця Болгарська, 1
           </Typography>
-          <Paper className={classes.paper}>
+          <Paper elevation={2} className={classes.paper}>
             <Grid container justify="space-between">
               <Grid item xs={3}>
                 <Typography>Пн</Typography>
@@ -62,7 +64,7 @@ function Working(props) {
               </Grid>
             </Grid>
           </Paper>
-          <Paper className={classes.paper}>
+          <Paper elevation={2} className={classes.paper}>
             <Grid container justify="space-between">
               <Grid item xs={3}>
                 <Typography>Вт-Чт</Typography>
@@ -72,7 +74,7 @@ function Working(props) {
               </Grid>
             </Grid>
           </Paper>
-          <Paper className={classes.paper}>
+          <Paper elevation={2} className={classes.paper}>
             <Grid container justify="space-between">
               <Grid item xs={3}>
                 <Typography>Пт</Typography>
@@ -82,7 +84,7 @@ function Working(props) {
               </Grid>
             </Grid>
           </Paper>
-          <Paper className={classes.paper}>
+          <Paper elevation={2} className={classes.paper}>
             <Grid container justify="space-between">
               <Grid item xs={3}>
                 <Typography>Сб</Typography>
@@ -92,7 +94,7 @@ function Working(props) {
               </Grid>
             </Grid>
           </Paper>
-          <Paper className={classes.paper}>
+          <Paper elevation={2} className={classes.paper}>
             <Grid container justify="space-between">
               <Grid item xs={3}>
                 <Typography>Нд</Typography>
@@ -105,6 +107,7 @@ function Working(props) {
         </Grid>{" "}
       </Grid>
     </section>
+    // </GoldGrungBackground>
   );
 }
 

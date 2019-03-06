@@ -20,6 +20,8 @@ export const styles = theme => {
   return {
     root: {
       padding: "5%",
+      background: "#fff",
+      borderBottom: `1px solid ${olive[300]}`,
     },
 
     title: {

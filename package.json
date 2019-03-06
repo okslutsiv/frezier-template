@@ -10,6 +10,7 @@
     "@material-ui/icons": "^3.0.2",
     "bootstrap": "^4.3.1",
     "color": "^3.1.0",
+    "date-fns": "^2.0.0-alpha.27",
     "gatsby": "^2.1.4",
     "gatsby-background-image": "^0.2.3",
     "gatsby-image": "^2.0.29",
@@ -22,6 +23,7 @@
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.13",
     "leaflet": "^1.4.0",
+    "material-ui-pickers": "^2.2.2",
     "mdi-material-ui": "^5.9.0",
     "node-sass": "^4.11.0",
     "pigeon-maps": "^0.11.10",
@@ -31,6 +33,7 @@
     "react-dom": "^16.8.2",
     "react-headroom": "^2.2.4",
     "react-helmet": "^5.2.0",
+    "react-input-mask": "^2.0.4",
     "react-jss": "^8.6.1",
     "react-leaflet": "^2.2.1"
   },

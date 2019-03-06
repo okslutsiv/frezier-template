@@ -3,8 +3,14 @@ import HeadroomWrapper from "react-headroom";
 import LogoSvg from "../../images/icons/svg/LogoSvg";
 import MenuSvg from "../../images/icons/svg/MenuSvg";
 import InfoPanelContent from "./InfoPanelContent";
-import { Link } from "gatsby";
-import { withStyles, Button, Grid, withWidth, Hidden } from "@material-ui/core";
+import { Link, navigate } from "gatsby";
+import {
+  withStyles,
+  ButtonBase,
+  Grid,
+  withWidth,
+  Hidden,
+} from "@material-ui/core";
 
 export const styles = theme => {
   const { burgundy, gold, olive } = theme.palette;
@@ -25,13 +31,23 @@ export const styles = theme => {
     },
     logo: {
       textAlign: "right",
+
       "& button": {
         height: 56,
+        width: 80,
+        padding: "6px 12px",
+        "&:hover": {
+          backgroundColor: "rgba(0, 0, 0, 0.08)",
+        },
       },
     },
     menuBtn: {
       height: 56,
       margin: 0,
+      width: 80,
+      "&:hover": {
+        backgroundColor: "rgba(0, 0, 0, 0.08)",
+      },
     },
     info: {
       textAlign: "center",
@@ -58,9 +74,9 @@ function Headroom(props) {
       <div className={classes.container}>
         <Grid container alignItems="center" justify="space-between">
           <Grid item xs={6} md={2}>
-            <Button onClick={props.toggleMenu} className={classes.menuBtn}>
+            <ButtonBase onClick={props.toggleMenu} className={classes.menuBtn}>
               <MenuSvg width="24px" className={classes.svg} />
-            </Button>
+            </ButtonBase>
           </Grid>
           <Hidden smDown>
             <Grid item md={8} container justify="center">
@@ -72,11 +88,11 @@ function Headroom(props) {
             </Grid>
           </Hidden>
           <Grid item xs={6} md={2} className={classes.logo}>
-            <Button>
-              <Link to="/">
-                <LogoSvg className={classes.svg} width="60px" height="45px" />
-              </Link>
-            </Button>
+            {/* <Link to="/"> */}
+            <ButtonBase onClick={() => navigate("/")}>
+              <LogoSvg className={classes.svg} width="60px" height="45px" />
+            </ButtonBase>
+            {/* </Link> */}
           </Grid>
         </Grid>{" "}
       </div>

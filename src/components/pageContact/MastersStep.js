@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import master1 from "../../images/team1/hairdresser11.jpg";
+import master2 from "../../images/team1/hairdresser21.jpg";
+import master3 from "../../images/team1/hairdresser31.jpg";
+import master4 from "../../images/team1/hairdresser41.jpg";
 
 import {
   withStyles,
   Typography,
   Paper,
   Radio,
-  FormControlLabel,
   Grid,
   Avatar,
+  TextField,
 } from "@material-ui/core";
-import {
-  RadioButtonUncheckedIcon,
-  RadioButtonCheckedIcon,
-  GridOff,
-} from "@material-ui/icons";
 
 export const styles = theme => {
   const { gold, olive, burgundy } = theme.palette;
@@ -23,8 +22,6 @@ export const styles = theme => {
       width: "60%",
       height: "auto",
       margin: "5% 20%",
-      // boxShadow:
-      //   "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
       border: `2px solid ${olive[500]}`,
     },
     card: {
@@ -32,10 +29,11 @@ export const styles = theme => {
       width: "80%",
       margin: "10%",
       border: `1px solid ${olive[500]}`,
-      color: burgundy[700],
+      padding: "1rem 0",
     },
     caption: {
-      paddingRight: 12,
+      color: gold[900],
+      fontSize: 14,
     },
     toggleContainer: {
       height: 56,
@@ -48,8 +46,15 @@ export const styles = theme => {
     },
   };
 };
+const masters = [
+  { name: "Ірина Гринів", image: master1 },
+  { name: "Олена Іванів", image: master2 },
+  { name: "Ігор Боднар", image: master3 },
+  { name: "Олена Стефура", image: master4 },
+];
+
 function MastersStep(props) {
-  const { classes, handleChange, value, masters } = props;
+  const { classes, handleChange, value, services } = props;
 
   return (
     <Grid container justify="center">
@@ -57,19 +62,48 @@ function MastersStep(props) {
         <Grid item key={i} xs={6} sm={4} md={3} container>
           <Paper elevation={8} className={classes.card}>
             <Avatar src={master.image} className={classes.avatar} />
-            <Grid item xs={12} container justify="center" alignItems="center">
+            <Grid
+              item
+              xs={12}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
               <Radio
                 checked={value === master.name}
-                onChange={handleChange}
+                onChange={handleChange("master")}
                 value={master.name}
+                color="primary"
               />
-              <Typography variant="body2" className={classes.caption}>
-                {master.name}
-              </Typography>
+              <Typography className={classes.caption}>{master.name}</Typography>
             </Grid>
           </Paper>
         </Grid>
       ))}
+      <Grid item xs={12}>
+        {" "}
+        {/* <Typography className={classes.label}>
+          Які послуги Вам потрібні?
+        </Typography> */}
+        <Paper style={{ padding: 12 }} elevation={0}>
+          <TextField
+            value={services}
+            name="services"
+            onChange={handleChange("services")}
+            required
+            fullWidth
+            label="Які послуги Вам потрібні?"
+            multiline
+            rows={2}
+            margin="normal"
+            variant="filled"
+            // InputLabelProps={{
+            //   shrink: true,
+            // }}
+          />
+        </Paper>
+      </Grid>
     </Grid>
   );
 }

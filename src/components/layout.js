@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
         <div
           style={{
             width: `100%`,
-            minHeight: `57vh`,
+            minHeight: `67vh`,
           }}
         >
           <main>{children}</main>

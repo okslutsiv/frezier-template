@@ -22,6 +22,7 @@ import {
   Typography,
   Paper,
   Icon,
+  StepConnector,
 } from "@material-ui/core";
 import {
   ArrowBack,
@@ -30,6 +31,7 @@ import {
   Replay,
   Send,
 } from "@material-ui/icons";
+import PersoneStep from "./PersoneStep";
 
 const steps = [
   { label: "Оберіть майстра", isStepOptional: true },
@@ -48,8 +50,13 @@ const styles = theme => {
   const { gold, olive, burgundy } = theme.palette;
   return {
     root: {
-      width: "100%",
+      width: "90%",
+      margin: "0 auto",
     },
+    line: {
+      borderColor: olive[700],
+    },
+
     button: {
       marginRight: theme.spacing.unit,
     },
@@ -72,21 +79,18 @@ class AppointStepper extends Component {
     completed: new Set(),
     skipped: new Set(),
     master: "",
-    firstName: "Oksana",
-    lastName: "Lutsiv",
+    selectedDate: new Date(),
+    daypart: "",
+    firstName: "",
+    lastName: "",
     phone: "",
-    schedule: [],
-    confirmationModalOpen: false,
-    appointmentDateSelected: false,
-    appointmentMeridiem: 0,
+    services: "",
     validPhone: true,
-    finished: false,
     smallScreen: window.innerWidth < 768,
   };
   getStepContent(step) {
     switch (step) {
       case 0:
-        console.log(masters);
         return (
           <MastersStep
             masters={masters}
@@ -95,9 +99,25 @@ class AppointStepper extends Component {
           />
         );
       case 1:
-        return <DateStep />;
+        return (
+          <DateStep
+            date={this.state.selectedDate}
+            daypart={this.state.daypart}
+            handleDateChange={this.handleDateChange}
+            handleDaypartChange={this.handleChange("daypart")}
+            handleChange={this.handleChange}
+            services={this.services}
+          />
+        );
       case 2:
-        return <PriceTable />;
+        return (
+          <PersoneStep
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            phone={this.state.phone}
+            handleChange={this.handleChange}
+          />
+        );
       default:
         return "Unknown step";
     }
@@ -176,14 +196,22 @@ class AppointStepper extends Component {
       completed: new Set(),
       skipped: new Set(),
       master: "",
+      selectedDate: new Date(),
+      daypart: "",
+      services: "",
     });
   };
   handleChange = input => e => {
+    e.preventDefault();
     console.log(e.target.value);
     this.setState({
-      [input]: "",
       [input]: e.target.value,
     });
+  };
+
+  handleDateChange = date => {
+    console.log(date);
+    this.setState({ selectedDate: date });
   };
   handleSubmit = () => {
     this.setState({
@@ -223,11 +251,13 @@ class AppointStepper extends Component {
 
     return (
       <GoldGrungBackground>
-        <div className={classes.root}>
+        <div>
           <Stepper
             alternativeLabel
+            classes={{ root: classes.root }}
             // nonLinear
             activeStep={activeStep}
+            connector={<StepConnector classes={{ line: classes.line }} />}
             // orientation="vertical"
           >
             {steps.map((step, index) => {
