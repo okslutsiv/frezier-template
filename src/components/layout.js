@@ -14,7 +14,6 @@ const Layout = ({ children }) => (
             title
             phone
             adress
-            fblink
           }
         }
       }
@@ -25,7 +24,6 @@ const Layout = ({ children }) => (
           title={data.site.siteMetadata.title}
           phone={data.site.siteMetadata.phone}
           adress={data.site.siteMetadata.adress}
-          fblink={data.site.siteMetadata.fblink}
         />
         <div
           style={{

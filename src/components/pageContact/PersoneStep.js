@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 
 export const styles = theme => {
-  const { burgundy } = theme.palette;
+  const { burgundy, olive } = theme.palette;
   return {
     container: {
       width: "100%",
@@ -22,12 +22,12 @@ export const styles = theme => {
     card: {
       textAlign: "center",
       width: "100%",
-      margin: "2rem 0",
+      border: `1px solid ${olive[500]}`,
     },
     label: {
       color: burgundy[700],
       padding: "1.5rem",
-      fontSize: "1.1rem",
+      fontSize: "0.9rem",
       maxWidth: 700,
       margin: "0 auto",
       textAlign: "center",
@@ -48,27 +48,25 @@ function PersoneStep(props) {
     handleChange,
     validPhone,
     validName,
+    handleOnEnterPress,
   } = props;
   return (
     <>
-      <Typography variant="body1" className={classes.label}>
-        Обидва поля є обов'язковими.Після їх заповнення коректними даними
+      <Typography variant="body2" className={classes.label}>
+        Обидва поля є обов'язковими. Після їх заповнення коректними даними
         активізується кнопка "Готово"
       </Typography>
       <Grid container justify="center">
         <Grid item xs={12} sm={6}>
-          <Paper elevation={0} className={classes.card}>
+          <Paper elevation={10} className={classes.card}>
             <div className={classes.container}>
-              <form
-                // noValidate
-                autoComplete="off"
-                onSubmit={e => e.preventDefault()}
-              >
+              <form autoComplete="off" onSubmit={e => e.preventDefault()}>
                 <TextField
                   value={name}
                   name="name"
                   onChange={handleChange("name")}
                   onBlur={validateName}
+                  onKeyUp={handleOnEnterPress}
                   required
                   type="text"
                   label="Ваше ім'я"
@@ -80,8 +78,8 @@ function PersoneStep(props) {
                   }}
                   helperText={
                     validName
-                      ? null
-                      : "Тільки літери кириличного або латинського алфавіту"
+                      ? "OK"
+                      : "Літери кириличного або латинського алфавіту"
                   }
                 />
 
@@ -99,10 +97,11 @@ function PersoneStep(props) {
                       fullWidth
                       margin="normal"
                       variant="filled"
+                      onKeyUp={handleOnEnterPress}
                       InputLabelProps={{
                         shrink: true,
                       }}
-                      helperText={validPhone ? null : "Тільки арабські цифри"}
+                      helperText={validPhone ? "OK" : "Тільки арабські цифри"}
                     />
                   )}
                 </InputMask>

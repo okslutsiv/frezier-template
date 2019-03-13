@@ -11,19 +11,15 @@ import {
 } from "@material-ui/core";
 
 export const styles = theme => {
-  const { gold, burgundy } = theme.palette;
+  const { gold, burgundy, olive } = theme.palette;
   return {
-    root: {
-      margin: 5,
-    },
     card: {
-      margin: "3rem auto",
-      overflow: "visible",
-      opacity: 1,
+      margin: "1rem auto",
+      maxWidth: 400,
+      border: `1px solid ${olive[500]}`,
     },
     media: {
-      height: "100%",
-      minHeight: 300,
+      height: 200,
       margin: 12,
       backgroundSize: "cover",
       borderRadius: "0.25rem",
@@ -47,14 +43,22 @@ export const styles = theme => {
       color: burgundy[900],
       border: `1px solid ${burgundy[900]}`,
     },
+    title: {
+      color: gold[900],
+      fontSize: "2rem",
+      margin: "0 0 1rem 0",
+      "& span": {
+        fontSize: "1rem",
+      },
+    },
     content: {
       textAlign: "center",
 
-      "& h3": {
-        color: gold[900],
-        fontSize: "2rem",
-        margin: "0 0 1rem 0",
-      },
+      // "& h3": {
+      //   color: gold[900],
+      //   fontSize: "2rem",
+      //   margin: "0 0 1rem 0",
+      // },
       "& p": {
         color: gold[900],
         marginBottom: 16,
@@ -64,19 +68,21 @@ export const styles = theme => {
 };
 
 function profileCard(props) {
-  const { classes, image, chipData, name, description } = props;
+  const { classes, image, chipData, name, description, specialty } = props;
   const icon = <DoneIcon className={classes.icon} />;
-  console.log(image);
+
   return (
-    <Card raised>
+    <Card raised className={classes.card}>
       <CardMedia className={classes.media} image={image} />
       <CardContent classes={{ root: classes.content }}>
         <Typography variant="h3" classes={{ root: classes.title }}>
+          <span>{specialty}</span>
+          <br />
           {name}
         </Typography>
         <Typography>{description}</Typography>
         {chipData.map((item, key) => (
-          <Chip key={key} label={item} className={classes.chip} icon={icon} />
+          <Chip key={key} label={item} className={classes.chip} />
         ))}
       </CardContent>
     </Card>

@@ -49,12 +49,28 @@ const theme = createMuiTheme({
         fontSize: 14,
       },
     },
+    MuiListItem: {
+      root: {
+        "&$disabled": {
+          backgroundColor: gold[900],
+          color: "#fff",
+          paddingLeft: 10,
+          "&:focus": {
+            backgroundColor: gold[900],
+            color: "#fff",
+          },
+        },
+        "&$selected": {
+          color: burgundy[900],
+        },
+      },
+    },
   },
   palette: {
     background: {
       default: "rgba(255,250,240,1)",
     },
-    primary: { main: burgundy[700] },
+    primary: { main: burgundy[900] },
     secondary: { main: olive[700] },
     gold: {
       rgb: gold["rgb"],

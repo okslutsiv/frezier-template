@@ -53,21 +53,21 @@ const styles = theme => {
   };
 };
 
-let id = 0;
-function createData(name, price) {
-  id += 1;
-  return { id, name, price };
-}
+// let id = 0;
+// function createData(name, price) {
+//   id += 1;
+//   return { id, name, price };
+// }
 
-const rows = [
-  createData("Послуга 1", 300),
-  createData("Послуга 2", 200),
-  createData("Послуга 3", 350),
-  createData("Послуга 4", 250),
-];
+// const rows = [
+//   createData("Послуга 1", 300),
+//   createData("Послуга 2", 200),
+//   createData("Послуга 3", 350),
+//   createData("Послуга 4", 250),
+// ];
 
 function PriceTable(props) {
-  const { classes } = props;
+  const { classes, pricelist } = props;
 
   return (
     <Table className={classes.table}>
@@ -80,10 +80,10 @@ function PriceTable(props) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map(row => (
-          <TableRow key={row.id} className={classes.row}>
+        {pricelist.map((row, i) => (
+          <TableRow key={i} className={classes.row}>
             <TableCell component="th" scope="row" className={classes.name}>
-              {row.name}
+              {row.service}
             </TableCell>
             <TableCell align="right" className={classes.price}>
               {row.price}

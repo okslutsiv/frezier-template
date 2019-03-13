@@ -15,7 +15,6 @@ import SEO from "../components/seo";
 
 const styles = theme => {
   const { gold } = theme.palette;
-  console.log(theme.palette);
 
   return {
     root: {

@@ -15,9 +15,9 @@ const styles = theme => {
       paddingTop: `5vh`,
       minHeight: `50vh`,
       "& h2": {
-        color: gold[700],
+        color: gold[900],
         textAlign: "center",
-        margin: "0 2rem",
+        margin: "4vh 2rem",
         textShadow: "0 0 15px rgba(255,250,240,1)",
       },
       "& p": {

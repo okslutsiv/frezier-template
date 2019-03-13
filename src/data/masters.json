@@ -1,0 +1,58 @@
+[
+  {
+    "id": "irinagriniv",
+    "name": "Ірина Гринів",
+    "image": {
+      "src": "../images/team/hairdresser1.jpg"
+    },
+    "specialty": "перукар",
+    "chipData": [
+      "Жіночі стрижки",
+      "Чоловічі стрижки",
+      "Фарбування волосся",
+      "Урочисті зачіски"
+    ],
+    "description": "Стаж роботи в професії 5 років",
+    "avatar": { "src": "../images/team/hairdresser1a.jpg" }
+  },
+  {
+    "id": "olenaivaniv",
+    "name": "Олена Іванів",
+    "image": {
+      "src": "../images/team/hairdresser2.jpg"
+    },
+    "specialty": "перукар",
+    "chipData": [
+      "Жіночі стрижки",
+      "Плетення",
+      "Фарбування волосся",
+      "Урочисті зачіски"
+    ],
+    "description": "Стаж роботи в професії 7 років",
+    "avatar": { "src": "../images/team/hairdresser2a.jpg" }
+  },
+  {
+    "id": "igorbodnar",
+    "name": "Ігор Боднар",
+    "image": {
+      "src": "../images/team/hairdresser3.jpg"
+    },
+    "specialty": "перукар",
+    "chipData": ["Жіночі стрижки", "Чоловічі стрижки", "Фарбування волосся"],
+    "description": "Стаж роботи в професії 6 років",
+    "avatar": { "src": "../images/team/hairdresser3a.jpg" }
+  },
+  {
+    "id": "olenastefura",
+    "name": "Олена Стефура",
+    "image": {
+      "src": "../images/team/hairdresser4.jpg"
+    },
+    "specialty": "манікюрниця",
+    "chipData": ["Манікюр", "Педікюр", "Нарощення нігтів та вій", "Макіяж"],
+    "description": "Стаж роботи в професії 5 років",
+    "avatar": {
+      "src": "../images/team/hairdresser4a.jpg"
+    }
+  }
+]

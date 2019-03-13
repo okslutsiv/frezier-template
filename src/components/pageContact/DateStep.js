@@ -16,7 +16,7 @@ import {
 import ukLocale from "date-fns/locale/uk";
 
 export const styles = theme => {
-  const { gold } = theme.palette;
+  const { gold, olive } = theme.palette;
   return {
     root: {
       width: "80%",
@@ -28,6 +28,7 @@ export const styles = theme => {
       textAlign: "center",
       margin: "2rem 0",
       padding: "1rem 1rem 4rem 1rem",
+      border: `1px solid ${olive[500]}`,
     },
     group: {
       justifyContent: "center",
@@ -60,7 +61,7 @@ function DateStep(props) {
 
   return (
     <>
-      <Paper elevation={0} className={classes.card}>
+      <Paper elevation={10} className={classes.card}>
         <Grid container justify="center" spacing={32}>
           <Grid item xs={12} sm={5} md={4}>
             <Typography className={classes.label}>

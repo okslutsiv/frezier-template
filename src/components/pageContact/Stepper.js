@@ -4,6 +4,7 @@ import format from "date-fns/format";
 import ukLocale from "date-fns/locale/uk";
 
 import MastersStep from "./MastersStep";
+import ServicesMultiselect from "./ServicesMultiselect";
 import DateStep from "./DateStep";
 import PersoneStep from "./PersoneStep";
 import Modal from "./Modal";
@@ -17,12 +18,17 @@ import {
   Button,
   Typography,
   Paper,
+  Grid,
 } from "@material-ui/core";
-import GoldGrungBackground from "../../images/backgrounds/goldGrung";
 
 const styles = theme => {
   const { gold, olive, burgundy } = theme.palette;
   return {
+    overlay: {
+      // backgroundColor: "rgba(255,250,240,0.8)",
+      padding: "1rem 0",
+      borderRadius: "0.25rem",
+    },
     root: {
       width: "90%",
       margin: "2rem auto",
@@ -35,7 +41,7 @@ const styles = theme => {
       margin: "1rem auto",
 
       "& span": {
-        color: gold[700],
+        color: burgundy[900],
         background: gold[200],
         margin: "0 1rem",
         padding: " 0 1rem",
@@ -66,7 +72,7 @@ const styles = theme => {
 };
 
 function getSteps() {
-  return ["Оберіть майстра", "Оберіть час", "Ваші контакти"];
+  return ["Оберіть майстра і сервіс", "Оберіть дату і час", "Ваші контакти"];
 }
 function daypartLocal(daypart) {
   switch (daypart) {
@@ -86,12 +92,17 @@ function daypartLocal(daypart) {
 class StepperAppoint extends React.Component {
   state = {
     activeStep: 0,
-    master: "",
+    masters: [
+      { id: "irinagriniv", checked: false },
+      { id: "olenaivaniv", checked: false },
+      { id: "igorbodnar", checked: false },
+      { id: "olenastefura", checked: false },
+    ],
     selectedDate: new Date(),
     daypart: "",
     name: "",
     phone: "",
-    services: "",
+    services: [],
     validPhone: false,
     validName: false,
     openModal: false,
@@ -101,11 +112,20 @@ class StepperAppoint extends React.Component {
     switch (stepIndex) {
       case 0:
         return (
-          <MastersStep
-            handleChange={this.handleChange}
-            value={this.state.master}
-            services={this.state.services}
-          />
+          <>
+            {" "}
+            <MastersStep
+              mastersList={this.props.masters}
+              handleSwithChange={this.handleSwithChange}
+              masters={this.state.masters}
+            />
+            <ServicesMultiselect
+              servicesList={this.props.services}
+              handleChange={this.handleChange}
+              handleDelete={this.handleDelete}
+              services={this.state.services}
+            />
+          </>
         );
       case 1:
         return (
@@ -127,6 +147,7 @@ class StepperAppoint extends React.Component {
             validatePhone={this.validatePhone}
             validPhone={this.state.validPhone}
             validName={this.state.validName}
+            handleOnEnterPress={this.handleOnEnterPress}
           />
         );
       default:
@@ -151,11 +172,16 @@ class StepperAppoint extends React.Component {
       activeStep: 0,
       completed: new Set(),
       skipped: new Set(),
-      master: "",
+      masters: [
+        { id: "irinagriniv", checked: false },
+        { id: "olenaivaniv", checked: false },
+        { id: "igorbodnar", checked: false },
+        { id: "olenastefura", checked: false },
+      ],
       daypart: "",
       name: "",
       phone: "",
-      services: "",
+      services: [],
       validPhone: false,
       validName: false,
       selectedDate: new Date(),
@@ -166,6 +192,25 @@ class StepperAppoint extends React.Component {
       [input]: e.target.value,
     });
   };
+  handleSwithChange = id => e => {
+    console.log(id, e.target, e.target.checked);
+
+    const newArr = this.state.masters.map(master => {
+      return master.id === id ? { id, checked: e.target.checked } : master;
+    });
+    this.setState({
+      masters: newArr,
+    });
+  };
+  handleDelete = (input, key) => e => {
+    console.log(this.state[input], key);
+
+    const newArr = this.state[input].filter((v, i) => i !== key);
+    console.log(newArr);
+    this.setState({
+      [input]: [...newArr],
+    });
+  };
   handleCloseModal = () => {
     this.setState({ openModal: false });
     navigate("/");
@@ -174,35 +219,61 @@ class StepperAppoint extends React.Component {
   handleDateChange = date => {
     this.setState({ selectedDate: date });
   };
+
   handleSubmit = () => {
     this.setState({
       activeStep: 0,
       completed: new Set(),
       skipped: new Set(),
       openModal: true,
-      master: "",
+      masters: [
+        { id: "irinagriniv", checked: false },
+        { id: "olenaivaniv", checked: false },
+        { id: "igorbodnar", checked: false },
+        { id: "olenastefura", checked: false },
+      ],
       daypart: "",
       name: "",
       phone: "",
-      services: "",
+      services: [],
       selectedDate: new Date(),
       validPhone: false,
       validName: false,
     });
   };
 
-  validateName = () => {
-    const regex = /[А-Я,а-я,A-Z,a-z]+/g;
+  handleOnEnterPress = e => {
+    if (e.which === 13) e.target.blur();
+  };
 
+  validateName = () => {
+    const regex = /^[А-Яа-яA-Za-z ]+$/g;
     const validName = regex.test(this.state.name);
-    console.log(validName);
     this.setState({ validName: validName });
   };
-  validatePhone = phone => {
-    const regex = /^[\+]?[0-9]{2}[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/;
-
+  validatePhone = () => {
+    const regex = /^[+]?[0-9]{2}[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{2}[-\s.]?[0-9]{2}$/;
     const validPhone = regex.test(this.state.phone);
     this.setState({ validPhone: validPhone });
+  };
+
+  getSelectedMastersNames = () => {
+    const masters = this.state.masters;
+    const mastersList = this.props.masters;
+    const checked = masters
+      .filter(master => master.checked)
+      .map(master => {
+        const v = mastersList.find(v => v.node.id === master.id);
+        return v.node.name;
+      });
+
+    return checked.length > 0 ? (
+      <Typography>
+        Ви обрали запис до майстра(-ів) <span> {checked.join(", ")}</span>
+      </Typography>
+    ) : (
+      <Typography>Ви не обирали майстра </Typography>
+    );
   };
 
   render() {
@@ -211,9 +282,13 @@ class StepperAppoint extends React.Component {
     const { activeStep } = this.state;
 
     return (
-      <GoldGrungBackground>
+      <div className={classes.overlay}>
         <div className={classes.root}>
-          <Stepper activeStep={activeStep} alternativeLabel>
+          <Stepper
+            activeStep={activeStep}
+            style={{ padding: "1rem", borderRadius: 4 }}
+            alternativeLabel
+          >
             {steps.map(label => (
               <Step key={label}>
                 <StepLabel
@@ -230,7 +305,7 @@ class StepperAppoint extends React.Component {
           <div>
             {this.state.activeStep === steps.length ? (
               <div>
-                <Paper elevation={0}>
+                <Paper elevation={15}>
                   <div className={classes.success}>
                     <Typography
                       variant="h5"
@@ -239,19 +314,16 @@ class StepperAppoint extends React.Component {
                     >
                       Всі кроки завершені
                     </Typography>
-                    {this.state.master ? (
+                    {this.getSelectedMastersNames()}
+
+                    {this.state.services.length > 0 ? (
                       <Typography>
-                        Ви обрали запис до майстра{" "}
-                        <span> {this.state.master}</span>
+                        Обрані послуги:{" "}
+                        <span> {this.state.services.join(", ")}</span>
                       </Typography>
                     ) : (
-                      <Typography>Ви не обирали майстра </Typography>
+                      <Typography>Послуги Вами не обрані</Typography>
                     )}
-                    {this.state.services ? (
-                      <Typography>
-                        Обрані послуги: <span> {this.state.services}</span>
-                      </Typography>
-                    ) : null}
                     <Typography>
                       Вас влаштовує дата{" "}
                       <span>
@@ -268,13 +340,15 @@ class StepperAppoint extends React.Component {
                       </Typography>
                     ) : null}
                     <Typography>
-                      Вас звати <span>{this.state.name}</span> <br />і Ваш
-                      контактний номер телефону <span>{this.state.phone}</span>
+                      Вас звати <span>{this.state.name}</span> <br />
+                      Ваш контактний номер телефону{" "}
+                      <span>{this.state.phone}</span>
                     </Typography>
                     <Typography>
                       {" "}
                       Все вірно?
-                      <br /> Тоді тисніть кнопку <span>"Надіслати"</span>.
+                      <br /> Будь-ласка, натисніть кнопку{" "}
+                      <span>"Надіслати"</span>.
                     </Typography>
                   </div>
                 </Paper>
@@ -309,6 +383,7 @@ class StepperAppoint extends React.Component {
                   >
                     Назад
                   </Button>
+
                   <Button
                     variant="contained"
                     color="primary"
@@ -331,7 +406,7 @@ class StepperAppoint extends React.Component {
             />{" "}
           </div>
         </div>
-      </GoldGrungBackground>
+      </div>
     );
   }
 }

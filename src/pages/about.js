@@ -1,36 +1,26 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PropTypes from "prop-types";
 import PricePanel from "../components/pageAbout/PricePanel";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../components/wrappers/MUIProvider/withRoot";
-import styling from "../images/pricelist/styling.jpg";
-import manHaircut from "../images/pricelist/man-haircut.jpg";
-import makeup from "../images/pricelist/makeup.jpg";
-import manicure from "../images/pricelist/manicure.jpg";
-import smokyEye from "../images/pricelist/smoky-eye.jpg";
-
+import GoldGrungBackground from "../images/backgrounds/goldGrung";
 import HeroSalon from "../components/pageAbout/heroSalon";
 
 const styles = theme => {
   const { burgundy } = theme.palette;
-  console.log(theme.palette);
 
   return {
-    root: {
-      marginTop: "-5rem",
-      position: "relative",
-      "& h2": {
-        color: burgundy[700],
-        textAlign: "center",
-      },
-    },
     container: {
       width: "90%",
       maxWidth: 960,
-      margin: "0 auto",
+      margin: "2rem auto 0",
+      borderRadius: "0.25rem",
+      backgroundColor: "rgba(255,250,240,0.8)",
     },
+    panel: { padding: "0 2rem" },
     intro: {
       padding: "2rem 2rem",
     },
@@ -41,71 +31,26 @@ const styles = theme => {
 };
 
 const AboutPage = props => {
-  const { classes } = props;
+  const { classes, data } = props;
+  const services = data.allServicesJson.edges;
+  const renderService = () =>
+    services.map((service, i) => (
+      <PricePanel
+        key={i}
+        title={service.node.category}
+        image={service.node.image.src.publicURL}
+        description={service.node.intro}
+        leftImg={i % 2 === 0}
+        pricelist={service.node.pricelist}
+      />
+    ));
+
   return (
     <Layout>
-      <SEO title="Page two" />
+      <SEO title="ABOUT" />
       <HeroSalon />
-      <div className={classes.root}>
-        <div className={classes.container}>
-          <PricePanel
-            title="Стрижка, фарбування та укладка волосся"
-            image={styling}
-            description=" Ваш текст тут:
-                Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур. Еирмод фиерент еу меи, ут сит
-                дицит апериам.Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. "
-            leftImg
-          />
-
-          <PricePanel
-            title="Догляд за бровами і віями"
-            image={smokyEye}
-            description=" Ваш текст тут: 
-                Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур. Еирмод фиерент еу меи, ут сит
-                дицит апериам."
-          />
-
-          <PricePanel
-            title="Манікюр та педікюр"
-            image={manicure}
-            description=" Ваш текст тут: 
-                Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур. Еирмод фиерент еу меи, ут сит
-                дицит апериам.Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур."
-            leftImg
-          />
-
-          <PricePanel
-            title="Макіяж"
-            image={makeup}
-            description=" Ваш текст тут: 
-                Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур. Еирмод фиерент еу меи, ут сит
-                дицит апериам."
-          />
-
-          <PricePanel
-            title="Чоловічі стрижки"
-            image={manHaircut}
-            description="  Ваш текст тут: 
-                Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Ат дуо елитр оцурререт. Ут цум иллум ирацундиа цонцлудатуряуе,
-                яуи те нибх ребум малис. Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур.Но анимал сигниферумяуе сед, хас ет
-                детрахит лобортис цомплецтитур. Еирмод фиерент еу меи, ут сит
-                дицит апериам."
-            leftImg
-          />
-        </div>
+      <div className={classes.container}>
+        <div className={classes.panel}>{renderService()}</div>
       </div>
     </Layout>
   );
@@ -113,4 +58,25 @@ const AboutPage = props => {
 AboutPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+export const query = graphql`
+  {
+    allServicesJson {
+      edges {
+        node {
+          category
+          pricelist {
+            service
+            price
+          }
+          image {
+            src {
+              publicURL
+            }
+          }
+          intro
+        }
+      }
+    }
+  }
+`;
 export default withRoot(withStyles(styles)(AboutPage));

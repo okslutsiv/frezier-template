@@ -32,13 +32,8 @@ export const styles = theme => {
       marginTop: "-150px",
     },
     text: {
-      // backgroundImage: `linear-gradient(45deg, ${gold[200]} 40%, ${
-      //   olive[200]
-      // })`,
-      // padding: "3rem 3rem 0 3rem",
-      // margin: "24px 24px 24px 24px",
       "& span": {
-        color: gold[700],
+        color: gold[900],
       },
     },
     icon: {
@@ -52,7 +47,7 @@ export const styles = theme => {
       margin: "0 auto",
       borderRadius: "50%",
       overflow: "hidden",
-      // border: `1px solid ${olive[700]}`,
+      border: `1px solid ${olive[700]}`,
       boxShadow: ` 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)`,
     },
   };

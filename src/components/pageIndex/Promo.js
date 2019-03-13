@@ -31,7 +31,7 @@ const styles = theme => {
     },
 
     text: {
-      color: gold[700],
+      color: gold[900],
     },
     strong: {
       display: "block",

@@ -11,10 +11,11 @@ const styles = theme => {
       width: "100%",
       paddingBottom: "2.5rem",
       backgroundImage: `radial-gradient(circle, rgba(255,250,240,0.85) 40%,rgba(255,250,240,0.55))`,
-      paddingTop: `5vh`,
+      paddingTop: `15vh`,
+
       minHeight: `50vh`,
       "& h2": {
-        color: gold[700],
+        color: gold[900],
         textAlign: "center",
         margin: "0 2rem",
         textShadow: "0 0 15px rgba(255,250,240,1)",
@@ -24,13 +25,9 @@ const styles = theme => {
         padding: "1rem 2rem",
         textAlign: "center",
         textShadow: "0 0 15px rgba(255,250,240,1)",
+        maxWidth: 960,
+        margin: "0 auto",
       },
-    },
-    cta: {
-      display: "block",
-      marginBottom: "2rem",
-      marginLeft: "50%",
-      transform: "translateX(-50%)",
     },
     intro: {
       margin: "1rem 5% 2rem",

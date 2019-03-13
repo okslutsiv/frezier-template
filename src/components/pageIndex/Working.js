@@ -11,7 +11,7 @@ const styles = theme => {
       borderBottom: `1px solid ${olive[300]}`,
     },
     title: {
-      color: gold[700],
+      color: gold[900],
       margin: "1rem auto",
     },
     adress: {

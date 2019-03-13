@@ -17,21 +17,21 @@ import PriceTable from "./PriceTable";
 
 const styles = theme => {
   const { gold, burgundy, olive } = theme.palette;
-  console.log(theme.palette);
 
   return {
     card: {
-      maxWidth: 960,
+      maxWidth: 860,
       margin: "3rem auto",
       overflow: "visible",
-      border: `1px solid ${olive[300]}`,
+      border: `1px solid ${olive[500]}`,
     },
     media: {
-      height: "100%",
-      minHeight: 150,
+      height: "95%",
+      minHeight: 200,
       margin: 12,
       backgroundSize: "cover",
       borderRadius: "0.25rem",
+      margin: "12px ",
       // opacity: 0.85,
     },
     actions: {
@@ -48,7 +48,12 @@ const styles = theme => {
         color: burgundy[900],
         fontSize: "1.5rem",
         textAlign: "center",
+        marginTop: "2rem",
       },
+    },
+    content: {
+      padding: "1vh 2vw",
+      textAlign: "justify",
     },
     button: {
       color: burgundy[700],
@@ -82,41 +87,36 @@ class PricePanel extends React.Component {
     });
   };
   render() {
-    const { classes, image, title, description } = this.props;
+    const { classes, image, title, description, pricelist } = this.props;
     const { leftImg } = this.props || false;
     const { expanded } = this.state;
     const leftImgPanel = (
       <>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={10} sm={4}>
           <CardMedia className={classes.media} image={image} />
         </Grid>
         <Grid item xs={12} sm={8}>
           <CardHeader title={title} className={classes.title} />
-          <CardContent>
-            <Typography variant="body1">{description}</Typography>
+          <CardContent className={classes.content}>
+            <Typography>{description}</Typography>
           </CardContent>
         </Grid>
       </>
     );
     return (
       <Card raised className={classes.card}>
-        <Grid
-          container
-          justify="space-between"
-          spacing={16}
-          alignContent="flex-end"
-        >
+        <Grid container justify="center" alignContent="flex-end">
           {leftImg ? (
             leftImgPanel
           ) : (
             <>
               <Grid item xs={12} sm={8}>
                 <CardHeader title={title} className={classes.title} />
-                <CardContent>
-                  <Typography variant="body1">{description}</Typography>
+                <CardContent className={classes.content}>
+                  <Typography>{description}</Typography>
                 </CardContent>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={10} sm={4}>
                 <CardMedia className={classes.media} image={image} />
               </Grid>
             </>
@@ -143,7 +143,7 @@ class PricePanel extends React.Component {
           unmountOnExit
         >
           <CardContent>
-            <PriceTable />
+            <PriceTable pricelist={pricelist} />
           </CardContent>
         </Collapse>
       </Card>
