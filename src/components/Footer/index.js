@@ -1,5 +1,5 @@
 import React from "react";
-import FooterBackground from "../../images/footerrose";
+import FooterBackground from "../../images/backgrounds/footerrose";
 import LogoSvg from "../../images/icons/svg/LogoSvg";
 import { withStyles, Typography, Grid } from "@material-ui/core";
 

@@ -17,7 +17,7 @@ const HeroBackground = ({ children }) => (
   <StaticQuery
     query={graphql`
       query {
-        backgroundImage: file(relativePath: { eq: "herorose2.jpg" }) {
+        backgroundImage: file(relativePath: { eq: "herorose.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 2500) {
               ...GatsbyImageSharpFluid_withWebp

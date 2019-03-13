@@ -9,7 +9,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 export const styles = theme => {
-  // const { burgundy, gold } = theme.palette;
   return {
     root: {
       position: "relative",
