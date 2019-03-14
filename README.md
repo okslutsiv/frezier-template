@@ -1,4 +1,4 @@
-# Beauty salon site template powered with GatsbyJS & Material-ui
+# Beauty salon site template with appointment form, powered with GatsbyJS & Material-ui
 
 ## Features
 
@@ -19,8 +19,10 @@
 - Radio,
 - Switch,
 - Modal,
+- Expansion panels,
 - Select (with custom <optgroup> simulation)
 - MuiThemeProvider,
+- ...
 
 4. **Gatsby background image (gatsby-background-image)**:  
    a React component based on Gatsby's own gatsby-image
@@ -33,6 +35,14 @@
 6)  **React-Leaflet**
     React components for 🍃 Leaflet maps
     https://react-leaflet.js.org/
+
+7)  **React Input Mask**
+    Input masking component for React. Made with attention to UX.
+    https://github.com/sanniassin/react-input-mask
+
+8)
+
+9)
 
 ## Design Tools & Assets
 
