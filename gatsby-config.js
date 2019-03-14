@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Салон краси Фризієр`,
+    pathPrefix: "/frezier",
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@okslutsiv`,
     phone: `+380 67 123 45 67`,
