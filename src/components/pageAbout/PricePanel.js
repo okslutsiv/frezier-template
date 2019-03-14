@@ -11,6 +11,7 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  ButtonBase,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PriceTable from "./PriceTable";
@@ -49,6 +50,7 @@ const styles = theme => {
         fontSize: "1.5rem",
         textAlign: "center",
         marginTop: "2rem",
+        cursor: "pointer",
       },
     },
     content: {
@@ -92,15 +94,18 @@ class PricePanel extends React.Component {
     const { expanded } = this.state;
     const leftImgPanel = (
       <>
-        <Grid item xs={10} sm={4}>
-          <CardMedia className={classes.media} image={image} />
-        </Grid>
-        <Grid item xs={12} sm={8}>
-          <CardHeader title={title} className={classes.title} />
-          <CardContent className={classes.content}>
-            <Typography>{description}</Typography>
-          </CardContent>
-        </Grid>
+        <ButtonBase onClick={this.handleExpandClick}>
+          <Grid item xs={10} sm={4}>
+            <CardMedia className={classes.media} image={image} />
+          </Grid>
+          <Grid item xs={12} sm={8}>
+            <CardHeader title={title} className={classes.title} />
+
+            <CardContent className={classes.content}>
+              <Typography>{description}</Typography>
+            </CardContent>
+          </Grid>
+        </ButtonBase>
       </>
     );
     return (
@@ -110,21 +115,28 @@ class PricePanel extends React.Component {
             leftImgPanel
           ) : (
             <>
-              <Grid item xs={12} sm={8}>
-                <CardHeader title={title} className={classes.title} />
-                <CardContent className={classes.content}>
-                  <Typography>{description}</Typography>
-                </CardContent>
-              </Grid>
-              <Grid item xs={10} sm={4}>
-                <CardMedia className={classes.media} image={image} />
-              </Grid>
+              {" "}
+              <ButtonBase onClick={this.handleExpandClick}>
+                <Grid item xs={12} sm={8}>
+                  <CardHeader
+                    title={title}
+                    className={classes.title}
+                    onClick={this.handleExpandClick}
+                  />
+                  <CardContent className={classes.content}>
+                    <Typography>{description}</Typography>
+                  </CardContent>
+                </Grid>
+                <Grid item xs={10} sm={4}>
+                  <CardMedia className={classes.media} image={image} />
+                </Grid>
+              </ButtonBase>
             </>
           )}
           <CardActions className={classes.actions} disableActionSpacing>
             <Fab
-              className={classes.button}
               onClick={this.handleExpandClick}
+              className={classes.button}
               aria-expanded={this.state.expanded}
               aria-label="Show more"
               size="large"

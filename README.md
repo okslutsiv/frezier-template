@@ -2,16 +2,13 @@
 
 ## Features
 
-1.  **Side navigation**
+1. **Gatsby v.2**
 
-    inspired by https://github.com/gauravchl/react-simple-sidenav with minor changes
+https://www.gatsbyjs.org/
 
-2.  **Headroom header**
-    https://github.com/KyleAMathews/react-headroom
+2.  **MATERIAL-UI v3.9.2**
 
-    Hide your header until you need it
-
-3.  **Material-ui**:
+https://material-ui.com
 
 - Card,
 - Chip,
@@ -24,34 +21,51 @@
 - MuiThemeProvider,
 - ...
 
-4. **Gatsby background image (gatsby-background-image)**:  
+3.  **Side navigation**
+
+    inspired by https://github.com/gauravchl/react-simple-sidenav with minor changes
+
+4.  **Headroom header**
+
+    https://github.com/KyleAMathews/react-headroom
+
+5) **Gatsby background image (gatsby-background-image)**
+
    a React component based on Gatsby's own gatsby-image
+
    https://github.com/timhagn/gatsby-background-image
 
-5)  **Material-UI Pickers**
-    Accessible, customizable, delightful date & time pickers for @material-ui/core
-    https://material-ui-pickers.dev/
+6) **Material-UI Pickers**
 
-6)  **React-Leaflet**
-    React components for 🍃 Leaflet maps
-    https://react-leaflet.js.org/
+   Accessible, customizable, delightful date & time pickers for @material-ui/core
 
-7)  **React Input Mask**
-    Input masking component for React. Made with attention to UX.
-    https://github.com/sanniassin/react-input-mask
+   https://material-ui-pickers.dev/
 
-8)
+7) **React-Leaflet**
 
-9)
+   React components for 🍃 Leaflet maps
+
+   https://react-leaflet.js.org/
+
+8) **React Input Mask**  
+   Input masking component for React. Made with attention to UX.
+
+   https://github.com/sanniassin/react-input-mask
 
 ## Design Tools & Assets
 
+**Color palette 'burgundy - gold - pearl'**
+
 **Material Design Color Generator**:
+
 A tool for generating a color palette for Material Design.
+
 https://github.com/mbitson/mcg
 
 **BeFunky Photo Editor**
+
 https://www.befunky.com/
 
 **Images**
+
 https://pxhere.com/

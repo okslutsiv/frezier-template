@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: `Салон краси Фризієр`,
-    pathPrefix: "/frezier",
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Таким може бути Ваш сайт - привабливим, швидким і функціональним :)`,
     author: `@okslutsiv`,
     phone: `+380 67 123 45 67`,
     adress: `Львів, вул.Болгарська, 1`,
     fblink: `https://facebook.com`,
   },
+  pathPrefix: "/frezier-template",
   plugins: [
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-react-leaflet",
@@ -32,13 +32,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `frezier`,
+        short_name: `frezier`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/icons/favicons/favicon32.png`, // This path is relative to the root of the site.
+        icon: `src/images/icons/favicons/favicon64.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

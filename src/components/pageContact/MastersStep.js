@@ -8,6 +8,7 @@ import {
   Switch,
   Grid,
   Avatar,
+  FormControlLabel,
 } from "@material-ui/core";
 
 export const styles = theme => {
@@ -68,16 +69,23 @@ function MastersStep(props) {
                 justify="center"
                 alignItems="center"
               >
-                <Switch
-                  checked={master.checked}
-                  onChange={handleSwithChange(master.id)}
-                  color="primary"
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={master.checked}
+                      onChange={handleSwithChange(master.id)}
+                      color="primary"
+                    />
+                  }
+                  label={
+                    <Typography className={classes.caption}>
+                      <span>{masterData[0].node.specialty}</span>
+                      <br />
+                      {masterData[0].node.name}
+                    </Typography>
+                  }
+                  labelPlacement="bottom"
                 />
-                <Typography className={classes.caption}>
-                  <span>{masterData[0].node.specialty}</span>
-                  <br />
-                  {masterData[0].node.name}
-                </Typography>
               </Grid>
             </Paper>
           </Grid>
