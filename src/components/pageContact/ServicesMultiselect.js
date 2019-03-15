@@ -7,6 +7,7 @@ import {
   MenuItem,
   Paper,
   InputLabel,
+  FormControl,
 } from "@material-ui/core";
 
 const styles = theme => {
@@ -27,9 +28,16 @@ const styles = theme => {
       padding: "1rem 1rem 4rem 1rem",
       border: `1px solid ${olive[500]}`,
     },
+    formControl: {
+      width: "100%",
+    },
     select: {
       width: "100%",
       color: burgundy[700],
+      textAlign: "right",
+      "&:focus": {
+        backgroundColor: "none",
+      },
     },
     selectIcon: { color: gold[700] },
     selectMenu: {
@@ -95,52 +103,62 @@ const ServicesMultiSelect = props => {
 
   return (
     <Paper elevation={10} className={classes.root}>
-      <InputLabel htmlFor="services" className={classes.inputLabel}>
-        Послуги
-      </InputLabel>
-      <Select
-        multiple
-        color="primary"
-        displayEmpty={true}
-        autoWidth={true}
-        value={[...services]}
-        onChange={handleChange("services")}
-        classes={{ selectMenu: classes.selectMenu, icon: classes.selectIcon }}
-        input={
-          <Input id="select-multiple-chip" classes={{ root: classes.select }} />
-        }
-        renderValue={selected => (
-          <div className={classes.chips}>
-            {selected.map((value, i) => (
-              <Chip
-                key={i}
-                label={value}
-                className={classes.chip}
-                color="primary"
-                onDelete={handleDelete("services", i)}
-                className={classes.chip}
-              />
-            ))}
-          </div>
-        )}
-        MenuProps={MenuProps}
-      >
-        {optionsList.map((item, i) => {
-          return (
-            <MenuItem
-              key={i}
-              value={item[0]}
-              disabled={item[1]}
+      <FormControl variant="filled" className={classes.formControl}>
+        <InputLabel
+          htmlFor="select-multiple-chip"
+          className={classes.inputLabel}
+        >
+          Послуги
+        </InputLabel>
+        <Select
+          multiple
+          color="primary"
+          displayEmpty={true}
+          autoWidth={true}
+          value={[...services]}
+          onChange={handleChange("services")}
+          classes={{ selectMenu: classes.selectMenu, icon: classes.selectIcon }}
+          input={
+            <Input
+              id="select-multiple-chip"
               classes={{
-                root: classes.menuItem,
-                selected: classes.menuItemSelected,
+                root: classes.select,
               }}
-            >
-              {item[0]}
-            </MenuItem>
-          );
-        })}
-      </Select>
+            />
+          }
+          renderValue={selected => (
+            <div className={classes.chips}>
+              {selected.map((value, i) => (
+                <Chip
+                  key={i}
+                  label={value}
+                  className={classes.chip}
+                  color="primary"
+                  onDelete={handleDelete("services", i)}
+                  className={classes.chip}
+                />
+              ))}
+            </div>
+          )}
+          MenuProps={MenuProps}
+        >
+          {optionsList.map((item, i) => {
+            return (
+              <MenuItem
+                key={i}
+                value={item[0]}
+                disabled={item[1]}
+                classes={{
+                  root: classes.menuItem,
+                  selected: classes.menuItemSelected,
+                }}
+              >
+                {item[0]}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
     </Paper>
   );
 };

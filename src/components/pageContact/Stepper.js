@@ -203,10 +203,7 @@ class StepperAppoint extends React.Component {
     });
   };
   handleDelete = (input, key) => e => {
-    console.log(this.state[input], key);
-
     const newArr = this.state[input].filter((v, i) => i !== key);
-    console.log(newArr);
     this.setState({
       [input]: [...newArr],
     });

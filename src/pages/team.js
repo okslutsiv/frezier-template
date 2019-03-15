@@ -45,7 +45,7 @@ const TeamPage = props => {
       <HeroTeam />
       <div className={classes.root}>
         <div className={classes.container}>
-          <Grid container justify="center" style={{ padding: "2rem" }}>
+          <Grid container justify="center" style={{ padding: "2rem 0" }}>
             {renderMasters()}
           </Grid>
         </div>

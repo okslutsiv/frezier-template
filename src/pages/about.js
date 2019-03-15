@@ -20,7 +20,6 @@ const styles = theme => {
       borderRadius: "0.25rem",
       backgroundColor: "rgba(255,250,240,0.8)",
     },
-    panel: { padding: "0 2rem" },
     intro: {
       padding: "2rem 2rem",
     },

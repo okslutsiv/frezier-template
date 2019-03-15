@@ -95,40 +95,44 @@ class PricePanel extends React.Component {
     const leftImgPanel = (
       <>
         <ButtonBase onClick={this.handleExpandClick}>
-          <Grid item xs={10} sm={4}>
-            <CardMedia className={classes.media} image={image} />
-          </Grid>
-          <Grid item xs={12} sm={8}>
-            <CardHeader title={title} className={classes.title} />
+          <Grid container justify="center" alignContent="flex-end">
+            <Grid item xs={10} sm={4}>
+              <CardMedia className={classes.media} image={image} />
+            </Grid>
+            <Grid item xs={12} sm={8}>
+              <CardHeader title={title} className={classes.title} />
 
-            <CardContent className={classes.content}>
-              <Typography>{description}</Typography>
-            </CardContent>
+              <CardContent className={classes.content}>
+                <Typography>{description}</Typography>
+              </CardContent>
+            </Grid>
           </Grid>
         </ButtonBase>
       </>
     );
     return (
       <Card raised className={classes.card}>
-        <Grid container justify="center" alignContent="flex-end">
+        <Grid container>
           {leftImg ? (
             leftImgPanel
           ) : (
             <>
               {" "}
               <ButtonBase onClick={this.handleExpandClick}>
-                <Grid item xs={12} sm={8}>
-                  <CardHeader
-                    title={title}
-                    className={classes.title}
-                    onClick={this.handleExpandClick}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography>{description}</Typography>
-                  </CardContent>
-                </Grid>
-                <Grid item xs={10} sm={4}>
-                  <CardMedia className={classes.media} image={image} />
+                <Grid container justify="center" alignContent="flex-end">
+                  <Grid item xs={12} sm={8}>
+                    <CardHeader
+                      title={title}
+                      className={classes.title}
+                      onClick={this.handleExpandClick}
+                    />
+                    <CardContent className={classes.content}>
+                      <Typography>{description}</Typography>
+                    </CardContent>
+                  </Grid>
+                  <Grid item xs={10} sm={4}>
+                    <CardMedia className={classes.media} image={image} />
+                  </Grid>
                 </Grid>
               </ButtonBase>
             </>

@@ -24,7 +24,7 @@ export const styles = theme => {
 
     title: {
       color: burgundy[900],
-      margin: "2rem 1rem 0 5rem",
+      margin: "2rem 1rem 0 2rem",
     },
     pearls: {
       width: "200px",

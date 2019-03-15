@@ -49,22 +49,10 @@ const styles = theme => {
     name: {
       color: gold[900],
       fontSize: "1rem",
+      padding: "4px 1rem",
     },
   };
 };
-
-// let id = 0;
-// function createData(name, price) {
-//   id += 1;
-//   return { id, name, price };
-// }
-
-// const rows = [
-//   createData("Послуга 1", 300),
-//   createData("Послуга 2", 200),
-//   createData("Послуга 3", 350),
-//   createData("Послуга 4", 250),
-// ];
 
 function PriceTable(props) {
   const { classes, pricelist } = props;
@@ -73,8 +61,10 @@ function PriceTable(props) {
     <Table className={classes.table}>
       <TableHead>
         <TableRow className={classes.head}>
-          <TableCell className={classes.headName}>Назва послуги</TableCell>
-          <TableCell align="right" className={classes.headPrice}>
+          <TableCell align="center" className={classes.headName}>
+            Назва послуги
+          </TableCell>
+          <TableCell align="center" className={classes.headPrice}>
             Ціна, грн
           </TableCell>
         </TableRow>
