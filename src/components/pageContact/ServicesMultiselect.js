@@ -30,14 +30,16 @@ const styles = theme => {
     },
     formControl: {
       width: "100%",
+      margin: 0,
     },
     select: {
       width: "100%",
       color: burgundy[700],
       textAlign: "right",
-      "&:focus": {
-        backgroundColor: "none",
-      },
+      borderBottom: `1px solid rgba(0,0,0,.5)`,
+      // "&:focus": {
+      //   backgroundColor: "none",
+      // },
     },
     selectIcon: { color: gold[700] },
     selectMenu: {
@@ -73,7 +75,7 @@ const styles = theme => {
     inputLabel: {
       color: gold[900],
       fontSize: "0.875rem",
-      marginBottom: "1rem",
+      margin: 0,
     },
   };
 };
