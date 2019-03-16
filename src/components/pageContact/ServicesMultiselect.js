@@ -32,20 +32,24 @@ const styles = theme => {
       width: "100%",
       margin: 0,
     },
-    select: {
+    selectInput: {
       width: "100%",
       color: burgundy[700],
       textAlign: "right",
-      borderBottom: `1px solid rgba(0,0,0,.5)`,
-      // "&:focus": {
-      //   backgroundColor: "none",
-      // },
+      backgroundColor: gold[200],
+    },
+    selectInputUnderline: {
+      "&:before": {
+        borderBottom: `1px solid ${burgundy[700]}`,
+        "&:hover": `1px solid ${burgundy[700]}`,
+      },
+      "&:hover:not($disabled):not($focused):not($error):before": {
+        borderBottom: `1px solid ${burgundy[700]}`,
+      },
     },
     selectIcon: { color: gold[700] },
     selectMenu: {
       whiteSpace: "normal",
-      backgroundColor: gold[200],
-
       minHeight: "2.5rem",
     },
     chip: {
@@ -77,6 +81,9 @@ const styles = theme => {
       fontSize: "0.875rem",
       margin: 0,
     },
+    focused: {},
+    disabled: {},
+    error: {},
   };
 };
 
@@ -124,7 +131,8 @@ const ServicesMultiSelect = props => {
             <Input
               id="select-multiple-chip"
               classes={{
-                root: classes.select,
+                root: classes.selectInput,
+                underline: classes.selectInputUnderline,
               }}
             />
           }
