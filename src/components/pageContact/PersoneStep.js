@@ -53,7 +53,7 @@ function PersoneStep(props) {
   return (
     <>
       <Typography variant="body2" className={classes.label}>
-        Обидва поля є обов'язковими. Після їх заповнення коректними даними
+        Обидва поля є обов&#39;язковими. Після їх заповнення коректними даними
         активізується кнопка "Готово"
       </Typography>
       <Grid container justify="center">
